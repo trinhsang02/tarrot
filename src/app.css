@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+	color-scheme: light;
+	--bg: #f8fafc;
+	--surface: #ffffff;
+	--surface-elevated: #f1f5f9;
+	--border: #cbd5e1;
+	--text: #0f172a;
+	--text-muted: #475569;
+	--accent: #0f766e;
+	--accent-strong: #0d9488;
+}
+
+:root.dark {
+	color-scheme: dark;
+	--bg: #020617;
+	--surface: #0f172a;
+	--surface-elevated: #111827;
+	--border: #334155;
+	--text: #e2e8f0;
+	--text-muted: #94a3b8;
+	--accent: #5eead4;
+	--accent-strong: #2dd4bf;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-shell {
+	background-color: var(--bg);
+	color: var(--text);
+}
+
+.app-header {
+	border-color: var(--border);
+	background-color: color-mix(in oklab, var(--surface) 86%, transparent);
+}
+
+.theme-muted {
+	color: var(--text-muted);
+}
+
+.theme-accent {
+	color: var(--accent);
+}
+
+.theme-link:hover {
+	color: var(--accent);
+}
+
+.theme-card {
+	border-color: var(--border);
+	background-color: var(--surface);
+}
+
+.theme-card:hover {
+	border-color: var(--accent-strong);
+}
+
+.theme-code {
+	color: var(--accent);
+}
+
+.theme-toggle {
+	border: 1px solid var(--border);
+	background-color: var(--surface);
+	color: var(--text);
+}
+
+.theme-toggle[aria-pressed="true"] {
+	border-color: var(--accent-strong);
+	color: var(--accent);
+}
