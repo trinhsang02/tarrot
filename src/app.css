@@ -2,30 +2,49 @@
 
 :root {
 	color-scheme: light;
-	--bg: #f8fafc;
+	/* Base palette */
+	--primary: #f7bd48;
+	--secondary: #2e004f;
+	--tertiary: #60d2ff;
+	--neutral: #1a1c1b;
+
+	/* Light mode (newest) */
+	--bg: #fffaf1;
+	--bg-soft: #fff3dd;
 	--surface: #ffffff;
-	--surface-elevated: #f1f5f9;
-	--border: #cbd5e1;
-	--text: #0f172a;
-	--text-muted: #475569;
-	--accent: #0f766e;
-	--accent-strong: #0d9488;
+	--surface-elevated: #fff0cb;
+	--border: #dfc89a;
+	--text: #1a1c1b;
+	--text-muted: #5f5747;
+	--accent: var(--secondary);
+	--accent-strong: #4d0e77;
+	--accent-on: #f9f3ff;
 }
 
 :root.dark {
 	color-scheme: dark;
-	--bg: #020617;
-	--surface: #0f172a;
-	--surface-elevated: #111827;
-	--border: #334155;
-	--text: #e2e8f0;
-	--text-muted: #94a3b8;
-	--accent: #5eead4;
-	--accent-strong: #2dd4bf;
+	/* Base palette stays the same in dark mode */
+	--primary: #f7bd48;
+	--secondary: #2e004f;
+	--tertiary: #60d2ff;
+	--neutral: #1a1c1b;
+
+	/* Dark mode (newest) */
+	--bg: #101211;
+	--bg-soft: #171918;
+	--surface: #1a1c1b;
+	--surface-elevated: #232725;
+	--border: #3d423f;
+	--text: #f6efdf;
+	--text-muted: #c5bcac;
+	--accent: var(--primary);
+	--accent-strong: #ffda80;
+	--accent-on: #1a1c1b;
 }
 
 body {
 	background-color: var(--bg);
+	background-image: radial-gradient(circle at top, color-mix(in oklab, var(--bg-soft) 72%, transparent), transparent 56%);
 	color: var(--text);
 	transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -37,7 +56,7 @@ body {
 
 .app-header {
 	border-color: var(--border);
-	background-color: color-mix(in oklab, var(--surface) 86%, transparent);
+	background-color: color-mix(in oklab, var(--surface) 92%, transparent);
 }
 
 .theme-muted {
@@ -52,13 +71,20 @@ body {
 	color: var(--accent);
 }
 
+.theme-link {
+	color: var(--text-muted);
+	transition: color 0.2s ease;
+}
+
 .theme-card {
 	border-color: var(--border);
 	background-color: var(--surface);
+	transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .theme-card:hover {
 	border-color: var(--accent-strong);
+	background-color: color-mix(in oklab, var(--surface-elevated) 72%, var(--surface));
 }
 
 .theme-code {
@@ -69,9 +95,18 @@ body {
 	border: 1px solid var(--border);
 	background-color: var(--surface);
 	color: var(--text);
+	transition: all 0.2s ease;
 }
 
 .theme-toggle[aria-pressed="true"] {
-	border-color: var(--accent-strong);
-	color: var(--accent);
+	border-color: var(--accent);
+	background-color: var(--accent);
+	color: var(--accent-on);
+}
+
+.theme-btn {
+	border: 1px solid var(--border);
+	background-color: var(--primary);
+	color: var(--text);
+	transition: all 0.2s ease;
 }

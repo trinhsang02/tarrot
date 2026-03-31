@@ -91,7 +91,7 @@
     <slot />
   </main>
 
-  <footer>
+  <footer class="fixed bottom-0 w-full backdrop-blur">
     <Navbar />
   </footer>
 </div>
